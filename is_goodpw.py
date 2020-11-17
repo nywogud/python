@@ -2,14 +2,14 @@ def is_goodpw(data):
 
     if len(data) < 10:
         return False
-    elif data.isupper():
+    if data.isupper() == False:
         return False
-    elif data.islower():
+    if data.islower() == False:
         return False
-    elif data.isdigit():
+    if data.isdigit() == False:
         return False
-    else:
-        return True
+
+    return True
 
 # 특수문자 not any 활용
 

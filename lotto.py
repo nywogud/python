@@ -8,6 +8,8 @@ def lotto():
         if x not in ran:
             ran.append(x)
             i = i + 1
+        else:
+            continue
 
     return ran
 
@@ -18,8 +20,8 @@ def lotto1():
         lotto.append(xx)
     return set(lotto)
 
-def lotto3():
+def lotto2():
     return random.sample(range(1,46),6)
 
-print(lotto3())
+print(lotto2())
 
