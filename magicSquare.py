@@ -24,7 +24,7 @@ def magicSquare():
             matrix[s_row, s_col] = i
         else: # 0이 아니면 다른 숫자가 있다는 얘기
             s_row = row+1; s_col = col
-            matrix[s_row, s_col] = i
+            matrix[s_row, s_col] = i # IndexError: index 3 is out of bounds for axis 0 with size 3.
 
     return matrix
 
