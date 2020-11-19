@@ -6,15 +6,7 @@ for i in range(1, a+1):
     for j in range(1, b+1):
         list.append(i+j)
 
-<<<<<<< HEAD
-for i in list:
-    x = 0
-    for j in list:
-        if i == j:
-            x += 1
-=======
-list = Counter(list)
-print(list)
+
 
 # for i in range(len(list)):
 #     if list[x] == max(list.values()):
