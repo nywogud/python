@@ -1,31 +1,16 @@
-from collections import Counter
-
-
-a = input("N면체 하나는? : ")
-b = input("N면체 나머지 다른 하나는? : ")
-a = int(a)
-b = int(b)
+a = int(input("N면체 하나는? : "))
+b = int(input("N면체 나머지 다른 하나는? : "))
 
 list = []
 for i in range(1, a+1):
     for j in range(1, b+1):
         list.append(i+j)
 
-list = Counter(list)
-print(list)
-
-for i in range(len(list)):
-    max(list.values())
-    print(i)
-
-# a = max(list.values())
-# result = []
-# if list.values() == a:
-#     result.append(list.keys())
-# print(result)
-
-
-#Counter({5: 4, 6: 4, 7: 4, 4: 3, 8: 3, 3: 2, 9: 2, 2: 1, 10: 1})
+for i in list:
+    x = 0
+    for j in list:
+        if i == j:
+            x += 1
 
 
 

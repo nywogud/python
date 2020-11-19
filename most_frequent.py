@@ -5,4 +5,4 @@ def most_frequent(list):
 
     return list[maximum.index(max(maximum))]
 
-print(most_frequent(["e", "c", "b", "aaa", "aaa"]))
+print(most_frequent(["e", "c", "b","b", "aaa", "aaa"]))
