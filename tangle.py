@@ -14,9 +14,9 @@ for i in range(1, a+1):
 list = Counter(list)
 print(list)
 
-for i in range(len(list)):
-    max(list.values())
-    print(i)
+# for i in range(len(list)):
+#     if list[x] == max(list.values()):
+#         print(list[x])
 
 # a = max(list.values())
 # result = []
