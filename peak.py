@@ -12,23 +12,29 @@ with open("ExData/peak.txt", 'r') as f:
     # print(temp)
 
     n = int(f.readline())
-    a = [list(map(int, f.readline().split())) for _ in range(n)]
-    a.insert(0, [0]*n)
-    a.append([0]*n)
 
-    for xx in a:
-        xx.insert(0,0)
-        xx.append(0)
-
-    print(xx)
+    a = []
+    for i in range(n):
+        a.append(f.readline().split())
     print(a)
 
-
-    cnt = 0
-    for i in range(1, n+1):
-        for j in range(1, n+1):
-            if (a[i][j] > a[i-1][j] and a[i][j] > a[i+1][j] and\
-                    a[i][j] > a[i][j-1] and a[i][j] > a[i][j+1]):
-                cnt += 1
-
-    print("봉우리 갯수는 {}개".format(cnt))
+    # a = [list(map(int, f.readline().split())) for _ in range(n)]
+    # a.insert(0, [0]*n)
+    # a.append([0]*n)
+    #
+    # for xx in a:
+    #     xx.insert(0,0)
+    #     xx.append(0)
+    #
+    # print(xx)
+    # print(a)
+    #
+    #
+    # cnt = 0
+    # for i in range(1, n+1):
+    #     for j in range(1, n+1):
+    #         if (a[i][j] > a[i-1][j] and a[i][j] > a[i+1][j] and\
+    #                 a[i][j] > a[i][j-1] and a[i][j] > a[i][j+1]):
+    #             cnt += 1
+    #
+    # print("봉우리 갯수는 {}개".format(cnt))
