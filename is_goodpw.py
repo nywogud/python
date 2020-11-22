@@ -1,16 +1,26 @@
+import re
+
 def is_goodpw(data):
 
     if len(data) < 10:
         return False
-    if data.isupper() == False:
+
+    if data.islower():
         return False
-    if data.islower() == False:
+    if data.islower():
         return False
-    if data.isdigit() == False:
+    i = re.findall('\d', data)
+    if bool(i) == False:
         return False
 
-    return True
+    b = ["!", "@", "#", "$", "%", "^", "&", "*"]
 
-# 특수문자 not any 활용
+    for i in b:
+        for j in data:
+            if i == j:
+                return True
+            else:
+                continue
+    return False
 
-print(is_goodpw("Jjl1sdfasdfqwerqafdsfad"))
+print(is_goodpw("Ddjkfjeiour1#"))

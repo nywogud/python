@@ -1,10 +1,21 @@
 a = int(input("N면체 하나는? : "))
 b = int(input("N면체 나머지 다른 하나는? : "))
-
-list = []
+index = 0
+list = [0]*(a*b)
+maxVal = 0
 for i in range(1, a+1):
     for j in range(1, b+1):
-        list.append(i+j)
+        index = i+j
+        list[index] += 1
+
+for i in range(a*b):
+    if list[i] > maxVal:
+        maxVal = list[i]
+
+for i in range(a*b):
+    if list[i] == maxVal:
+        print(i, end=" ")
+
 
 
 
@@ -32,6 +43,8 @@ for i in range(1, a+1):
 # cnt = [0]*(a*b)
 # max_val = 0
 #
+#
+#
 # for i in range(1, a+1):
 #     for j in range(1, b+1):
 #         index = i+j
@@ -43,7 +56,7 @@ for i in range(1, a+1):
 #         max_val = cnt[i]
 #
 # for i in range(a+b+1):
-#     if cnt[i] == max_val :
+#     if cnt[i] == max_val:
 #         print(i, end=' ')
 
 ##############################################
