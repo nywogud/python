@@ -12,18 +12,18 @@
 
 #########################################################
 
-# n, k  = map(int, input("정수 입력...").split(','))
-# princes = list(range(1, n+1))
-#
-# while princes:
-#     for _ in range(k-1):
-#         princes.append(princes.pop(0))
-#     print(princes)
-#     princes.pop(0)
-#
-#     if len(princes) == 1:
-#         print(princes[0])
-#         break
+n, k  = map(int, input("정수 입력...").split(','))
+princes = list(range(1, n+1))
+
+while princes:
+    for _ in range(k-1):
+        princes.append(princes.pop(0))
+    print(princes)
+    princes.pop(0)
+
+    if len(princes) == 1:
+        print(princes[0])
+        break
 
 ##########################################################
 #리스트에서 요소 하나씩 제거하기
