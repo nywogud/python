@@ -1,4 +1,5 @@
-부분집합 : 이해가 잘...
+I don't know yet
+
 def markBit(x,c):
     a=[0]*c
     for i in range(c):
@@ -14,5 +15,5 @@ for i in range(2**n):
     idx = markBit(2**n-i, n)
     for j in range(n):
         if idx[j] ==1:
-            print(tt[j], end='')
+            print(tt[j], end=' ')
     print()
