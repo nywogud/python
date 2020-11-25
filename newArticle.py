@@ -1,48 +1,33 @@
-from collections import Counter
+import operator
 
 newArticle = """
+    Local and international experts shared their ideas on how South Korea should set its future diplomatic strategies and North Korea policy following the election of Joe Biden as the 46th U.S. president, during the Kor-Asia Forum 2020, Wednesday.
 
-Justice Minister Choo Mi-ae on Tuesday suspended Prosecutor General Yoon Seok-youl from his duty, in an unprecedented move amid a feud over prosecution reforms and various investigations involving Yoon's aide and family members.
-
-"The ministry has been investigating various allegations against the top prosecutor and found out some serious misconduct," the justice minister said during a briefing.
-
-As reasons to bar him from his duty and seek disciplinary actions, the minister cited what she called an "improper" meeting with a media executive, the illegal inspection of judges involved in controversial cases, interference with the prosecution's investigations to protect people close to him and damage to public trust in the political neutrality of the prosecution. She also cited his alleged leak of information to the press on the Supreme Prosecutors Office's launch of an audit into his close aide involved in an alleged blackmail case.
-
-She said that Yoon violated ethics by meeting with Hong Seok-hyun, chairman of JoongAng Holdings, the media group that owns local daily JoongAng Ilbo and cable channel JTBC, in November 2018, who could be an interested party in a case being probed by prosecutors. Yoon was the chief prosecutor at the Seoul Central District Prosecutors Office at that time. Choo didn't offer further details.
-
-She also said Yoon had impeded the ministry's lawful probe by not responding to recent written investigation inquiries.
-
-"As the justice minister, who has the utmost authority to oversee the prosecution, I decided that it is not tolerable to let him continue his duty," Choo said.
-
+The forum, co-hosted by The Korea Times and its sister paper the Hankook Ilbo, was held under the theme, "In the Era of Biden: The Future of Asia and the Korean Peninsula," at The Shilla Seoul hotel. While experts here attended the forum in person, those from the U.S., Japan and China participated online due to the COVID-19 pandemic situation.
 """
-#
-# newArticle=newArticle.split()
-#
-# prequent = Counter(newArticle)
-# print(prequent.most_common(10))
-
-#######################################################
-
-# newArticle=newArticle.split(' ')
-# print(newArticle)
-# frequent = []
-#
-# for i in range(len(newArticle)):
-#     cnt = 0
-#     for j in range(len(newArticle)):
-#         if newArticle[i] == newArticle[j]:
-#             cnt += 1
-#             frequent.append((newArticle[i], cnt))
-#
-# print(frequent)
-###################################################################
-# "\n"", ",", ".", "\'s" 등등 제거
-newArticle.re(",", "")
-
+# "\n"", ",", ".", "\'s" 등등 제거하고 모든 문자 소문자로 바꾸기
+newArticle = newArticle.replace("\"", "").replace(",", "").replace(".", "").replace("\'s", "").replace(":", "").lower().split()
 print(newArticle)
+print()
+result = {} # 딕셔너리
+for i in range(len(newArticle)):
+    cnt = 0
+    for j in range(len(newArticle)):
+        if newArticle[i]==newArticle[j]:
+            cnt += 1
+        else:
+            result[newArticle[i]]= 1
+    result[newArticle[i]] = cnt
 
-# newArticle=newArticle.split()
-#
-#
-#
-# print(newArticle)
+result = sorted(result.items(), reverse=True, key=operator.itemgetter(1))
+for i in range(len(result)):
+    print("{} : {}".format(result[i][0], result[i][1]))
+
+print()
+
+cnt = 1
+for i in range(len(result)):
+    if cnt == 10:
+        break
+    print("{} = {}".format(result[i][0], result[i][1]))
+    cnt +=1
