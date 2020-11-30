@@ -10,8 +10,35 @@ for i in range(len(orders)):
 print(names)
 
 names = sorted(set(names))
-
 print(names)
+
+orderPerson = []
+orderList = []
+order = []
+for name in names:
+    orderList = []
+    for i in orders:
+        order = i
+        if name == order[0]:
+            for k in range(1, len(order)):
+                orderList.append(order[k])
+
+    orderPerson.append((name, len(set(orderList))))
+
+orderPerson.sort(key=lambda x:(x[1], x[0]), reverse=True)
+print(orderPerson)
+
+top = 0
+for i in orderPerson:
+    if i[1] >= top:
+        print(i[0])
+        top = i[1]
+
+
+
+
+
+
 
 
 
@@ -25,7 +52,7 @@ print(names)
 # for xx in orders:
 #     nameOder = xx.split()
 #     names.append(nameOder[0])
-# # print(list(set(names)))
+# print(list(set(names)))
 #
 # nameMenuCnt = []
 # for name in names:
@@ -35,16 +62,16 @@ print(names)
 #         if name == order[0]:
 #             for k in range(1, len(order)):
 #                 orderList.append(order[k])
-#             # print(name, orderList)
+#             print(name, orderList)
 #     nameMenuCnt.append((name, len(set(orderList))))
 #
 # nameMenuCnt = list(set(nameMenuCnt))
 #
-# # print(nameMenuCnt)
+# print(nameMenuCnt)
 #
 # nameMenuCnt.sort(key=lambda x : (x[1], x[0]), reverse=True)
 #
-# # print(nameMenuCnt)
+# print(nameMenuCnt)
 #
 # top = 0
 # for xx in nameMenuCnt:
