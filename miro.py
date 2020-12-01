@@ -23,9 +23,9 @@
 #     print(-1)
 # else:
 #     print(dis[6][6])
-#
-# # for xx in matrix:
-# #     print(xx)
+
+# for xx in matrix:
+#     print(xx)
 # #답은 12
 
 ###########################################################
@@ -46,13 +46,13 @@ dx = [-1,0,1,0]
 dy = [0,1,0,-1]
 
 
-
+cnt = 0
 def DFS(x,y): # Depth First Search(DFS)
     global cnt
     if x == 2 and y==2:
         cnt +=1
     else:
-        for i in range(4):
+        for i in range(4): # 리스트의 길이 만큼 반복한다.
             xx = x + dx[i]
             yy = y + dy[i]
             if 0<=xx<=2 and 0<=yy<=2 and matrix[xx][yy]==0:
@@ -66,10 +66,6 @@ def printA(matrix):
         print(xx)
     print()
 
-
-
-
-cnt = 0
 matrix[0][0] = 8
 DFS(0,0)
 print(cnt)
