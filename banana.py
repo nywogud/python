@@ -6,9 +6,7 @@
 from collections import deque
 Q = deque()
 with open("./ExData/banana", 'r') as f:
-    y, x = f.readline().split()
-    x = int(x)
-    y = int(y)
+    y, x = map(int, f.readline().split())
     print("x, y = {}, {} ".format(x, y))
     lst = [list(map(int, f.readline().split())) for _ in range(x)]
 
@@ -24,31 +22,54 @@ for i in lst:
     print(i)
 print()
 
-for i in range(x):
-    for j in range(y):
-        if lst[i][j] == 1:
-            Q.append((i, j))
-        else:
-            continue
+
+
+
 
 print(Q) # 여기서부터 시작한다.
 
 dx = [-1,0,1,0]
 dy = [0,1,0,-1]
 
+cnt = 0
+for i in range(x):
+    for j in range(y):
+        if lst[i][j] == 1:
+            Q.append((i, j))
+def a():
+    for i in range(x):
+        for j in range(y):
+            if lst[i][j] == 1:
+                Q.append((i, j))
+
+print(Q)
 while Q:
     temp = Q.popleft()
     for i in range(4):
         nx = temp[0] + dx[i]
         ny = temp[1] + dy[i]
-        if <=좌표의 조건을  걸어 <= and lst[nx][ny] == 0:
+        if 0<= nx<= x-1 and 0 <= ny <=y-1 and lst[nx][ny] == 0:
             lst[nx][ny] =1
-        else:
-            break
+            for i in lst:
+                print(i)
+                print()
 
+    cnt += 1
+    a()
+    for i in lst:
+        for j in lst:
+            if j==0:
+                continue
+            else:
+                break
+
+
+print()
 for i in lst:
     print(i)
+    print()
 
+print(cnt)
 
 
 # while True: #무한루프
