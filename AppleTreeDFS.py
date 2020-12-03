@@ -11,7 +11,7 @@ print(matrix)
 
 level = 0
 total = 0 #초기화
-Q= deque()
+Q = deque()
 print(Q)
 
 ck_tbl=[[0]*n for _ in range(n)]
