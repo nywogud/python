@@ -48,7 +48,7 @@ while Q:
     for i in range(4):
         nx = temp[0] + dx[i]
         ny = temp[1] + dy[i]
-        if 0<= nx<= x-1 and 0 <= ny <=y-1 and lst[nx][ny] == 0:
+        if 0<= nx < x and 0 <= ny <y and lst[nx][ny] == 0:
             lst[nx][ny] =1
             for i in lst:
                 print(i)
