@@ -4,94 +4,63 @@
 #숙성 바나나의 좌표값을 알아내서 queue에 넣기
 
 from collections import deque
+
+f = open("./ExData/banana1", 'r')
+col, row = map(int, f.readline().split())
+print(col)
+print(row)
+lst = [list(map(int, f.readline().split())) for _ in range(row)]
+for i in lst:
+    print(i)
 Q = deque()
-with open("./ExData/banana", 'r') as f:
-    y, x = map(int, f.readline().split())
-    print("x, y = {}, {} ".format(x, y))
-    lst = [list(map(int, f.readline().split())) for _ in range(x)]
-
-for i in lst:
-    print(i)
-temp = [[0]*y]*x
-print()
-
-for i in temp:
-    print(i)
-print()
-for i in lst:
-    print(i)
-print()
-
-
-
-
-
-print(Q) # 여기서부터 시작한다.
-
-dx = [-1,0,1,0]
-dy = [0,1,0,-1]
-
-cnt = 0
-for i in range(x):
-    for j in range(y):
-        if lst[i][j] == 1:
-            Q.append((i, j))
-def a():
-    for i in range(x):
-        for j in range(y):
+print(Q)
+print(bool(Q))
+def serach():
+    for i in range(row):
+        for j in range(col):
             if lst[i][j] == 1:
                 Q.append((i, j))
-
-print(Q)
+dx = [-1,0,1,0]
+dy = [0,1,0,-1]
+cnt = 1
+print(bool(Q))
+serach()
 while Q:
-    temp = Q.popleft()
+    global cnt
+    temp = []
+    temp.append(Q.popleft())
+    print(Q)
+    print(temp)
     for i in range(4):
-        nx = temp[0] + dx[i]
-        ny = temp[1] + dy[i]
-        if 0<= nx < x and 0 <= ny <y and lst[nx][ny] == 0:
-            lst[nx][ny] =1
-            for i in lst:
-                print(i)
-                print()
+        nrow = temp[0][0]+ dx[i]
+        ncol = temp[0][1]+ dy[i]
+        if 0<=nrow<row and 0<=ncol<col and lst[nrow][ncol] == 0:
+            lst[nrow][ncol] = 1
 
-    cnt += 1
-    a()
+    print(Q)
+    print(bool(Q))
+    if bool(Q)==False:
+        cnt +=1
+        serach()
+
     for i in lst:
-        for j in lst:
-            if j==0:
-                continue
-            else:
-                break
+        print(i)
+
+    pointer = 0
+    for i in lst:
+        if 0 not in i:
+            pointer +=1
+
+    if pointer==row:
+        break
 
 
-print()
+
+print(bool(Q))
+print("모든 바나나가 익는데 걸리는 일수는 {}".format(cnt))
 for i in lst:
     print(i)
-    print()
 
-print(cnt)
-
-
-# while True: #무한루프
-#     if level == n//2:
-#         break
-#     size = len(Q)
-#     for i in range(size):
-#         temp = Q.popleft()
-#         for j in range(4):
-#             x=temp[0]+dx[j]
-#             y=temp[1]+dy[j]
-#             if ck_tbl[x][y]==0:
-#                 total += matrix[x][y]
-#                 ck_tbl[x][y]= 1
-#                 Q.append((x,y))
-#                 print("level={} Qsize={}  x={} y={}".format(level, size, x, y))
-#                 for xx in ck_tbl:
-#                     print(xx)
-#                 print()
-#     level +=1
-#
-# print(total)
 
 
 

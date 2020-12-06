@@ -18,6 +18,7 @@ def reverse(lst):
 
 #소수 구하기 함수
 def isPrimeNum(x):
+    result=[]
     for i in x:
         temp =[]
         for j in range(1, i+1):
@@ -25,8 +26,13 @@ def isPrimeNum(x):
                 temp.append(j)
 
         temp.pop(0)
-        temp.pop(-1)
+        a = temp.pop(-1)
         print(temp)
+        if bool(temp) == False:
+            result.append(a)
 
+    print(result)
+    result.sort()
+    print(result)
 
 reverse(Q)
